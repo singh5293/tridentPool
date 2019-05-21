@@ -13,7 +13,6 @@ function importAll(r: any): any {
 const images = importAll(
   require.context("../assets/images", false, /\.(png|jpe?g|JPG|svg)$/)
 );
-
 const imgUrls: string[] = images;
 // [
 //   "https://cmeimg-a.akamaihd.net/640/clsd/getty/c64f76dc20c246ca88ee180fe4b4b781",
