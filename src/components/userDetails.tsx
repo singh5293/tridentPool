@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
-import { userInterface } from "../Interfaces/UserInterface";
+import { iuserInterface } from "../Interfaces/UserInterface";
 
-export const UserDetails: FunctionComponent<userInterface> = props => {
+export const UserDetails: FunctionComponent<iuserInterface> = props => {
   const { name, age, address, dob } = props;
 
   return (

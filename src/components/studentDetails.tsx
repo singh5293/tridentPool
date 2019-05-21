@@ -1,5 +1,5 @@
 import React from "react";
-import { stuDetails } from "../Interfaces/UserInterface";
+import { istuDetails } from "../Interfaces/UserInterface";
 import styled from "styled-components";
 
 const Button = styled.button`
@@ -14,7 +14,7 @@ const Button = styled.button`
     cursor: pointer;
   }
 `;
-export class StudentDetails extends React.Component<stuDetails> {
+export class StudentDetails extends React.Component<istuDetails> {
   render() {
     const { marks, collegeName } = this.props;
     return (
