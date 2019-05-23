@@ -1,21 +1,21 @@
 html,
-body,
-#container,
-.carousel {
+body
+/* ,#container */
+
+/* ,.carousel  */
+    {
     height: 100%;
     margin: 0;
     width: 100%;
 }
 
+/* .image-slide {
+  height: 100%;
+  width: 100%;
+  transition: background-image 0.3s ease-in-out;
+} */
 
-
-.image-slide {
-    height: 100%;
-    width: 100%;
-    transition: background-image .3s ease-in-out;
-}
-
-.slide-arrow {
+/* .slide-arrow {
     color: #14B6D4;
     cursor: pointer;
     font-size: 2rem;
@@ -29,4 +29,4 @@ body,
 
 .slide-arrow.left {
     left: 1rem;
-}
+} */
