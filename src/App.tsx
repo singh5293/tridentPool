@@ -1,44 +1,55 @@
 import React from "react";
-// import { UserDetails } from "./components/userDetails";
-// import { StudentDetails } from "./components/studentDetails";
-// import UcImage from "../src/assets/images/under-construction-1550234.jpg";
-// import styled from "styled-components";
-import { Carousel } from "./components/Carosul";
+import { connect } from "react-redux";
+import { isLoggedIn } from "./store/actions/auth";
+import ImageSlider from "./components/SlideShow";
+import { ThunkDispatch } from "redux-thunk";
+import { AnyAction } from "redux";
+import { IApp } from "./Interfaces/UserInterface";
+import styled from "styled-components";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
+import AboutUs from "./components/AboutUs";
+import Contact from "./components/contact";
+import "normalize.css/normalize.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "bootstrap/dist/css/bootstrap.css";
 import "./styles/styles.css";
-// const userData = {
-//   name: "prakash",
-//   age: 27,
-//   address: "aecs layout",
-//   dob: "05 Feb 1993"
-// };
 
-// const studentData = {
-//   marks: 78,
-//   collegeName: "sir mvit"
-// };
+const Container = styled.div``;
 
-// const CsImage = styled.img`
-//   width: 100%;
-//   height: 100%;
-//   scroll: none;
-// `;
+export class App extends React.Component<IApp> {
+  componentDidMount() {
+    this.props.logIn();
+  }
+  render() {
+    console.log(this.props);
+    return (
+      <>
+        <Container>
+          <Header />
+          <ImageSlider />
+          <AboutUs />
+          {/* <Footer /> */}
+          <Contact />
+        </Container>
+      </>
+    );
+  }
+}
 
-// const ImageWrapper = styled.div`
-//   width: 100%;
-//   height: 100%;
-// `;
-
-const App = () => {
-  return (
-    <>
-      <div>
-        <Carousel />
-        {/* <CsImage src={UcImage} alt="under construction image" /> */}
-      </div>
-      {/* <UserDetails {...userData} />
-      <StudentDetails {...studentData} /> */}
-    </>
-  );
+const mapStateToProps = (state: any) => {
+  return {
+    loggedIn: state.loggedIn
+  };
 };
 
-export default App;
+const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AnyAction>) => {
+  return {
+    logIn: () => dispatch(isLoggedIn())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
